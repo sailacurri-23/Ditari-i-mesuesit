@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Plotesimi i ditarit me AI</title>
-	 <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<script>
 document.getElementById("createDiary").addEventListener("click", function () {
 
     const emri = document.getElementById("teacherName").value;
@@ -16,25 +6,64 @@ document.getElementById("createDiary").addEventListener("click", function () {
     const lenda = document.getElementById("subject").value;
     const data = document.getElementById("date").value;
     const tema = document.getElementById("topic").value;
-    const objektivat = document.getElementById("objectives").value;
-    const veprimtarite = document.getElementById("activities").value;
 
     if (!emri || !shkolla || !klasa || !lenda || !data || !tema) {
         alert("Ju lutem plotësoni të gjitha të dhënat kryesore!");
         return;
     }
 
-    const faqja = `
-        <div style="
-            background:white;
-            max-width:900px;
-            margin:30px auto;
-            padding:40px;
-            border-radius:15px;
-            box-shadow:0 4px 15px rgba(0,0,0,0.1);
-        ">
+    // 🤖 DEMONSTRIM AI
+    let objektivat = "";
+    let veprimtarite = "";
+    let metodat = "";
+    let mjetet = "";
+    let vleresimi = "";
 
-            <h1>DITARI I MËSUESIT</h1>
+    if (tema.toLowerCase().includes("lojëra lëvizore")) {
+
+        objektivat =
+            "Nxënësi të njohë dhe të zbatojë lojëra lëvizore popullore. " +
+            "Të zhvillojë koordinimin, shkathtësinë dhe bashkëpunimin në grup.";
+
+        veprimtarite =
+            "Nxehje e përgjithshme, shpjegimi dhe demonstrimi i lojës, " +
+            "ndarja e nxënësve në grupe, zhvillimi i lojës dhe reflektimi në fund të orës.";
+
+        metodat =
+            "Metoda demonstrative, metoda praktike, punë në grupe dhe lojë.";
+
+        mjetet =
+            "Topa, konuse, litarë dhe mjete të tjera sportive.";
+
+        vleresimi =
+            "Vlerësim i pjesëmarrjes, bashkëpunimit, zbatimit të rregullave " +
+            "dhe aftësive lëvizore.";
+
+    } else {
+
+        objektivat =
+            "Nxënësi të kuptojë konceptet kryesore të temës dhe të zbatojë " +
+            "njohuritë e fituara gjatë veprimtarisë.";
+
+        veprimtarite =
+            "Hyrje dhe nxehje, shpjegimi i temës, demonstrimi, " +
+            "ushtrime praktike dhe reflektim në fund të orës.";
+
+        metodat =
+            "Bashkëbisedim, demonstrim, punë praktike dhe punë në grupe.";
+
+        mjetet =
+            "Mjete sportive dhe materiale ndihmëse.";
+
+        vleresimi =
+            "Vlerësim i pjesëmarrjes, përvetësimit të njohurive " +
+            "dhe realizimit të veprimtarive.";
+    }
+
+    const faqja = `
+        <div class="diary-page">
+
+            <h1>📚 DITARI I MËSUESIT</h1>
 
             <p><strong>Mësuesi:</strong> ${emri}</p>
             <p><strong>Shkolla:</strong> ${shkolla}</p>
@@ -44,16 +73,23 @@ document.getElementById("createDiary").addEventListener("click", function () {
 
             <hr>
 
-            <h2>Tema e orës</h2>
+            <h2>📌 Tema e orës</h2>
             <p>${tema}</p>
 
-            <h2>Objektivat</h2>
+            <h2>🎯 Objektivat</h2>
             <p>${objektivat}</p>
 
-            <h2>Veprimtaritë</h2>
+            <h2>🏃 Veprimtaritë</h2>
             <p>${veprimtarite}</p>
 
-            <br>
+            <h2>📖 Metodat</h2>
+            <p>${metodat}</p>
+
+            <h2>⚽ Mjetet</h2>
+            <p>${mjetet}</p>
+
+            <h2>✅ Vlerësimi</h2>
+            <p>${vleresimi}</p>
 
             <button onclick="window.print()">
                 🖨️ Printo / Ruaj PDF
@@ -62,86 +98,6 @@ document.getElementById("createDiary").addEventListener("click", function () {
         </div>
     `;
 
-    document.body.innerHTML = faqja;
+    document.getElementById("result").innerHTML = faqja;
 });
-</script>
-
-<body>
-
-    <h1>📚 Ditari i Mësuesit</h1>
-
-    <div class="style.css">
-
-        <!-- KOLONA 1 -->
-        <div class="column">
-
-            <label for="teacherName">Emri dhe Mbiemri</label>
-            <input
-                type="text"
-                id="teacherName"
-                name="teacherName"
-                placeholder="Shkruani emrin dhe mbiemrin">
-
-            <label for="school">Shkolla</label>
-            <input
-                type="text"
-                id="school"
-                name="school"
-                placeholder="Emri i shkollës">
-
-            <label for="class">Klasa</label>
-            <input
-                type="text"
-                id="class"
-                name="class"
-                placeholder="p.sh. 7-A">
-
-            <label for="subject">Lënda</label>
-            <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="p.sh. Edukim Fizik">
-
-        </div>
-
-
-        <!-- KOLONA 2 -->
-        <div class="column">
-
-            <label for="date">Data</label>
-            <input
-                type="date"
-                id="date"
-                name="date">
-
-            <label for="topic">Tema e orës</label>
-            <input
-                type="text"
-                id="topic"
-                name="topic"
-                placeholder="Shkruani temën">
-
-            <label for="objectives">Objektivat</label>
-            <textarea
-                id="objectives"
-                name="objectives"
-                placeholder="Shkruani objektivat..."></textarea>
-
-            <label for="activities">Veprimtaritë</label>
-            <textarea
-                id="activities"
-                name="activities"
-                placeholder="Shkruani veprimtaritë..."></textarea>
-
-        </div>
-
-    </div>
-    <br>
-    <button id="createDiary" name="createDiary">
-        ✨ Gjenero ditarin
-    </button>
-
-</body>
-</body>
-</html>
+    
