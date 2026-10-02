@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Plotesimi i ditarit me AI</title>
+	 <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<script>
+document.getElementById("createDiary").addEventListener("click", function () {
+
+    const emri = document.getElementById("teacherName").value;
+    const shkolla = document.getElementById("school").value;
+    const klasa = document.getElementById("class").value;
+    const lenda = document.getElementById("subject").value;
+    const data = document.getElementById("date").value;
+    const tema = document.getElementById("topic").value;
+    const objektivat = document.getElementById("objectives").value;
+    const veprimtarite = document.getElementById("activities").value;
+
+    if (!emri || !shkolla || !klasa || !lenda || !data || !tema) {
+        alert("Ju lutem plotësoni të gjitha të dhënat kryesore!");
+        return;
+    }
+
+    const faqja = `
+        <div style="
+            background:white;
+            max-width:900px;
+            margin:30px auto;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        ">
+
+            <h1>DITARI I MËSUESIT</h1>
+
+            <p><strong>Mësuesi:</strong> ${emri}</p>
+            <p><strong>Shkolla:</strong> ${shkolla}</p>
+            <p><strong>Klasa:</strong> ${klasa}</p>
+            <p><strong>Lënda:</strong> ${lenda}</p>
+            <p><strong>Data:</strong> ${data}</p>
+
+            <hr>
+
+            <h2>Tema e orës</h2>
+            <p>${tema}</p>
+
+            <h2>Objektivat</h2>
+            <p>${objektivat}</p>
+
+            <h2>Veprimtaritë</h2>
+            <p>${veprimtarite}</p>
+
+            <br>
+
+            <button onclick="window.print()">
+                🖨️ Printo / Ruaj PDF
+            </button>
+
+        </div>
+    `;
+
+    document.body.innerHTML = faqja;
+});
+</script>
+
+<body>
+
+    <h1>📚 Ditari i Mësuesit</h1>
+
+    <div class="style.css">
+
+        <!-- KOLONA 1 -->
+        <div class="column">
+
+            <label for="teacherName">Emri dhe Mbiemri</label>
+            <input
+                type="text"
+                id="teacherName"
+                name="teacherName"
+                placeholder="Shkruani emrin dhe mbiemrin">
+
+            <label for="school">Shkolla</label>
+            <input
+                type="text"
+                id="school"
+                name="school"
+                placeholder="Emri i shkollës">
+
+            <label for="class">Klasa</label>
+            <input
+                type="text"
+                id="class"
+                name="class"
+                placeholder="p.sh. 7-A">
+
+            <label for="subject">Lënda</label>
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="p.sh. Edukim Fizik">
+
+        </div>
+
+
+        <!-- KOLONA 2 -->
+        <div class="column">
+
+            <label for="date">Data</label>
+            <input
+                type="date"
+                id="date"
+                name="date">
+
+            <label for="topic">Tema e orës</label>
+            <input
+                type="text"
+                id="topic"
+                name="topic"
+                placeholder="Shkruani temën">
+
+            <label for="objectives">Objektivat</label>
+            <textarea
+                id="objectives"
+                name="objectives"
+                placeholder="Shkruani objektivat..."></textarea>
+
+            <label for="activities">Veprimtaritë</label>
+            <textarea
+                id="activities"
+                name="activities"
+                placeholder="Shkruani veprimtaritë..."></textarea>
+
+        </div>
+
+    </div>
+    <br>
+    <button id="createDiary" name="createDiary">
+        ✨ Gjenero ditarin
+    </button>
+
+</body>
+</body>
+</html>
