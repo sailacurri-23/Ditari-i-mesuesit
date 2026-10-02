@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Plotesimi i ditarit me AI</title>
+	 <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
 document.getElementById("createDiary").addEventListener("click", function () {
 
     const emri = document.getElementById("teacherName").value;
@@ -100,4 +109,84 @@ document.getElementById("createDiary").addEventListener("click", function () {
 
     document.getElementById("result").innerHTML = faqja;
 });
+
+<body>
+
+    <h1>📚 Ditari i Mësuesit</h1>
+
+    <div class="style.css">
+
+        <!-- KOLONA 1 -->
+        <div class="column">
+
+            <label for="teacherName">Emri dhe Mbiemri</label>
+            <input
+                type="text"
+                id="teacherName"
+                name="teacherName"
+                placeholder="Shkruani emrin dhe mbiemrin">
+
+            <label for="school">Shkolla</label>
+            <input
+                type="text"
+                id="school"
+                name="school"
+                placeholder="Emri i shkollës">
+
+            <label for="class">Klasa</label>
+            <input
+                type="text"
+                id="class"
+                name="class"
+                placeholder="p.sh. 7-A">
+
+            <label for="subject">Lënda</label>
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="p.sh. Edukim Fizik">
+
+        </div>
+
+
+        <!-- KOLONA 2 -->
+        <div class="column">
+
+            <label for="date">Data</label>
+            <input
+                type="date"
+                id="date"
+                name="date">
+
+            <label for="topic">Tema e orës</label>
+            <input
+                type="text"
+                id="topic"
+                name="topic"
+                placeholder="Shkruani temën">
+
+            <label for="objectives">Objektivat</label>
+            <textarea
+                id="objectives"
+                name="objectives"
+                placeholder="Shkruani objektivat..."></textarea>
+
+            <label for="activities">Veprimtaritë</label>
+            <textarea
+                id="activities"
+                name="activities"
+                placeholder="Shkruani veprimtaritë..."></textarea>
+
+        </div>
+
+    </div>
+    <br>
+    <button id="createDiary" name="createDiary">
+        ✨ Gjenero ditarin
+    </button>
+
+</body>
+</body>
+</html>
     
